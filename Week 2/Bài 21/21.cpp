@@ -19,11 +19,17 @@ bool check(int idCourse, int idTeacher) {
 }
 bool check_teacher() {
     for(int i = 1; i <= m; i++) {
-        if(cur_crd[i] < lb[i]) return false; 
+        if(cur_courses[i] < lb[i]) return false; 
     }
     return true;
 }
 void Try(int idCourse) {
+    if(idCourse > n) {
+        if(check_teacher()) {
+            min_maxLoad = min(maxLoad, min_maxLoad);
+        }
+        return;
+    }
     for(int x : canTeach[idCourse]) {
         if(check(idCourse, x)) {
             schedule[x].push_back(idCourse);
@@ -45,6 +51,8 @@ void Try(int idCourse) {
     }
 }
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
     cin >> m >> n;
     int num_can_teach, idCourse;
     canTeach.resize(31);
