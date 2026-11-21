@@ -6,8 +6,8 @@ int n, m;
 vector<vector<pair<long long, int>>> adj;
 vector<long long> dist;
 void dijkstra(int s) {
-    dist.assign(n + 1, 1e9);
-    priority_queue<pair<long long, int>> pq;
+    dist.assign(n + 1, 1e18);
+    priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> pq;
     pq.push({0, s});
     dist[s] = 0;
     while(!pq.empty()) {
@@ -22,7 +22,7 @@ void dijkstra(int s) {
         }
     }
     for(int i = 1; i <= n; i++) {
-        if(dist[i] != 1e9) cout << dist[i] << ' ';
+        if(dist[i] != 1e18) cout << dist[i] << ' ';
         else cout << -1 << ' ';
     }
     cout << endl;
@@ -30,7 +30,7 @@ void dijkstra(int s) {
 int main() {
     cin >> n >> m;
     adj.resize(n + 1);
-    dist.resize(n + 1, 1e9);
+    dist.resize(n + 1, 1e18);
     int u, v, w;
     for(int i = 0; i < m; i++) {
         cin >> u >> v >> w;
