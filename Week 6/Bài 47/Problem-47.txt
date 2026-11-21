@@ -1,0 +1,63 @@
+Two undirected graphs G1 = (V1, E1) and G2 = (V2,E2) have the same structure (G1 and G2 are isomorphic) if and only if there exists a bijective function f: V1 -> V2 such that (u,v) in E1 iff (f(v), f(v)) in E2.
+Given a sequence of undirected graph G = g1, g2, . . ., gN. Perform K queries to check whether or not a given graph hk (k = 1, 2, . . ., K) is present in G (there exists a graph of G which has the same structure with hk).
+Input
+The input consists of 2 blocks:
+	The first blocks are N graphs with the format:
+	Line 1: contains a positive integer N (1 <= N <= 10000)
+	Subsequent lines contain the information about n graphs g1, g2, . . ., gN with the format:
+	Line 1: contains 2 integer n and m which are the number of nodes and edges of the graph
+	Line i+1 (i = 1, 2, ..., m): contains 2 integer u and v which are endpoints of an edge of the graph 
+	The first block is terminated with a line containing #
+	The second block are K graphs in the queries with the format:
+	Line 1: contains 2 integer n and m which are the number of nodes and edges of the graph
+	Line i+1 (i = 1, 2, ..., m): contains 2 integer u and v which are endpoints of an edge of the graph 
+
+
+Output
+Line k (k = 1, 2, ..., K): contains 1 if the graph hk is present in G, and contains 0, otherwise
+
+Example
+Input 
+4
+3 3
+1 2
+1 3
+2 3
+4 4
+1 2
+2 3
+3 4
+1 4
+4 5
+1 2
+1 3
+2 3
+2 4
+3 4
+4 5
+1 2
+1 3
+1 4
+2 4
+3 4
+#
+3
+3 2
+1 2
+1 3
+4 5
+1 3
+1 4
+2 3
+2 4
+3 4
+4 4
+1 2
+1 3
+2 4
+3 4
+
+Output
+0
+1
+1
